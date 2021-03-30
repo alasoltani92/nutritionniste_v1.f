@@ -35,7 +35,7 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="contactId" mnemonicParsing="false" onAction="#ContactEvent" style="-fx-background-color: Transparent; -fx-text-fill: Blue; -fx-border-width: 0px 0px 2px 0px;" text="Cantact">
+            <Button fx:id="AvisId" mnemonicParsing="false" onAction="#AvisEvent" style="-fx-background-color: Transparent; -fx-text-fill: Blue; -fx-border-width: 0px 0px 2px 0px;" text="Avis">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>

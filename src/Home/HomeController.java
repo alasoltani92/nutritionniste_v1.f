@@ -37,7 +37,7 @@ public class HomeController implements Initializable {
     @FXML
     private Button rdvId;
     @FXML
-    private Button contactId;
+    private Button AvisId;
 
     /**
      * Initializes the controller class.
@@ -104,7 +104,21 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void ContactEvent(ActionEvent event) {
+    private void AvisEvent(ActionEvent event) {
+           try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/Avis/avis.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+            Stage current = (Stage)((Node) event.getSource()).getScene().getWindow();
+           current.close();
+        } catch (IOException ex) {
+            Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
+ 
     
 }

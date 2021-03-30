@@ -109,6 +109,15 @@ else if (imc > 30.0)
 
     @FXML
     private void goProgrameMinceur(ActionEvent event) {
+                   try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/Regime/regime.fxml"));
+               Stage mainStage = new Stage();
+                Scene scene = new Scene(parent);
+                mainStage.setScene(scene);
+                mainStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

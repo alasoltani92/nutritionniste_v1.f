@@ -33,6 +33,9 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -164,7 +167,13 @@ public class RDVController implements Initializable {
            // Transport.send(message);
             Msg="true";
     	   // return "ff";
-
+            String title = "Ajouté! ";
+            String messagee = "mail a été envoiyer avec succés!";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(4));
         } catch (Exception e) {
           //  return e.toString();
         }
