@@ -18,7 +18,7 @@
             <FontAwesomeIconView glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="324.0" layoutY="36.0" prefHeight="100.0" prefWidth="360.0">
+      <HBox alignment="CENTER_LEFT" layoutX="119.0" layoutY="37.0" prefHeight="100.0" prefWidth="568.0">
          <children>
             <Button fx:id="nutId" mnemonicParsing="false" onAction="#nutAction" style="-fx-background-color: Transparent; -fx-text-fill: Blue;" text="Nutrisioniste">
                <font>
@@ -31,6 +31,11 @@
                </font>
             </Button>
             <Button fx:id="rdvId" mnemonicParsing="false" onAction="#rdvAction" style="-fx-background-color: Transparent; -fx-text-fill: Blue;" text="RDV">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="conf" mnemonicParsing="false" onAction="#confirme" style="-fx-background-color: Transparent; -fx-text-fill: blue;" text="confirmé rendez-vous">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>

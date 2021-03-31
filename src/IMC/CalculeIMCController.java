@@ -99,11 +99,7 @@ else if (imc > 30.0)
                 Scene scene = new Scene(parent);
                 mainStage.setScene(scene);
                 mainStage.show();
-//            Scene scene = new Scene(parent);
-//            Stage stage = new Stage();
-//            stage.setScene(scene);
-//            stage.initStyle(StageStyle.UTILITY);
-//            stage.show();
+//          
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }

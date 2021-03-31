@@ -51,6 +51,8 @@ public class AddNutController implements Initializable {
     private JFXTextField emailFld;
     @FXML
     private JFXTextField telFld;
+    
+    
     String query = null;
     Connection connection = null;
     ResultSet resultSet = null;
