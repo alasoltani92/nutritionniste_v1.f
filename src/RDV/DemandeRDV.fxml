@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="746.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RDV.DemandeRDVController">
    <children>
-      <TableView fx:id="nutTable" layoutX="33.0" layoutY="155.0" prefHeight="286.0" prefWidth="658.0">
+      <TableView fx:id="nutTable" layoutX="33.0" layoutY="104.0" prefHeight="337.0" prefWidth="658.0">
         <columns>
           <TableColumn fx:id="nomCol" maxWidth="114.0" prefWidth="85.0" style="-fx-alignment: center;" text="NOM" />
             <TableColumn fx:id="prenomCol" maxWidth="114.0" prefWidth="90.0" style="-fx-alignment: center;" text="PRENOM" />
@@ -21,7 +21,7 @@
             <TableColumn fx:id="editCol" maxWidth="130.0" prefWidth="106.0" style="-fx-alignment: center;" text="ENVOI MAIL" />
         </columns>
       </TableView>
-      <Text layoutX="20.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Demande RDV" wrappingWidth="342.13671875">
+      <Text layoutX="101.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Demande RDV" wrappingWidth="342.13671875">
          <font>
             <Font name="Bauhaus 93" size="32.0" />
          </font>
@@ -31,11 +31,8 @@
             <FontAwesomeIconView glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="73.0" prefHeight="76.0" prefWidth="238.0">
-         <children>
-            <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" onMouseClicked="#goHome" size="45" />
-         </children>
-      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="73.0" prefHeight="76.0" prefWidth="238.0" />
+      <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" layoutX="12.0" layoutY="52.0" onMouseClicked="#goHome" size="45" />
    </children>
    <styleClass>
       <String fx:value="btn" />

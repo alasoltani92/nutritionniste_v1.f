@@ -29,7 +29,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 import models.Nutritionniste;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -65,7 +68,7 @@ public class AddNutController implements Initializable {
 
     @FXML
     private void save(MouseEvent event) {
-                connection = DbConnect.getConnect();
+        connection = DbConnect.getConnect();
         String name = nameFld.getText();
         String adress = adressFld.getText();
         String email = emailFld.getText();
@@ -77,11 +80,17 @@ public class AddNutController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Veuillez remplir tout les champs");
             alert.showAndWait();
-
+            notificationalert();
         } else {
+            if (validation_ajout()==1){
             getQuery();
-            insert();
-            clean();
+             insert();
+             clean();
+            }else{
+             getQuery();
+             insert();
+                     }
+           
 
         }
     }
@@ -105,33 +114,35 @@ public class AddNutController implements Initializable {
             preparedStatement.setString(2, prenomFld.getText());
            preparedStatement.setString(5, adressFld.getText());
             preparedStatement.execute();
-
+            
         } catch (SQLException ex) {
             
         }
-
+     
     }
        private void getQuery() {
 if(validation_ajout()==1){
         if (update == false) {
             
             query = "INSERT INTO `nutritionniste`( `nom_nut`, `prenom_nut`, `num_tel_nut`, `mail_nut`,`addresse_nut`) VALUES (?,?,?,?,?)";
-
-        }else{
+            notification();
+        }else if(update==true) {
             query = "UPDATE `nutritionniste` SET "
                     + "`nom_nut`=?,"
                     + "`prenom_nut`=?,"
                     + "`num_tel_nut`=?,"
                     + "`mail_nut`= ? ,"
                     + "`addresse_nut` =? WHERE id_nutrit  = '"+nutId+"'";
+            notificationmod();
+        }
+        else{
+        
+        notifmodalert();
         }
 
     
 } else {
-     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText("Attention");
-                    alert.setContentText("non ajouter");
-                    alert.showAndWait();
+     notificationalert();
     
 
 }
@@ -147,6 +158,7 @@ int a=1;
                     alert.setHeaderText("Attention");
                     alert.setContentText("veuillez saisir un Nom Valide");
                     alert.showAndWait();
+                    
                     a=0;
     }
            
@@ -205,4 +217,43 @@ int a=1;
         this.update = b;
 
     }
+          public void notificationalert(){
+     String title = "nuyritionniste NON ajouter! ";
+            String messagee = "nutritionniste ne pas été ajouter !";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(4));
+    }
+    public void notification(){
+     String title = "NUTRITIONNISTE AJOUTER! ";
+            String messagee = "nutritionniste a été ajouter avec succés!";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(4));
+            
+    }
+           public void notifmodalert(){
+     String title = "nuyritionniste NON MODIFIER! ";
+            String messagee = "nutritionniste ne pas été MODIFIER !";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(4));
+    }
+    public void notificationmod(){
+     String title = "NUTRITIONNISTE MODIFIER! ";
+            String messagee = "nutritionniste a été modifier avec succés!";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(4));
+            
+    }
+   
 }

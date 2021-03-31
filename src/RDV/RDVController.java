@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -62,6 +63,8 @@ public class RDVController implements Initializable {
     private DatePicker dateId;
     @FXML
     private Button sendId;
+    @FXML
+    private FontAwesomeIconView closeid;
 
     /**
      * Initializes the controller class.
@@ -74,7 +77,7 @@ public class RDVController implements Initializable {
       @FXML
     private void goHome(MouseEvent event) {
            try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/Home/Home.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("/Adherent/Homeadhe.fxml"));
                Stage mainStage = new Stage();
                 Scene scene = new Scene(parent);
                 mainStage.setScene(scene);
@@ -115,8 +118,10 @@ public class RDVController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Veuillez remplir tout les champs");
             alert.showAndWait();
+            notificationalert();
         } else{
-        sendEmail();  
+        sendEmail(); 
+        notification();
         clean();
         }
     }
@@ -166,17 +171,34 @@ public class RDVController implements Initializable {
            // message.setText(dateId.getValue().toString());
            // Transport.send(message);
             Msg="true";
-    	   // return "ff";
-            String title = "Ajouté! ";
+    	   
+        } catch (Exception e) {
+          //  return e.toString();
+        }
+    
+    }
+    public void notificationalert(){
+     String title = "EMAIL NON ENVOYER! ";
+            String messagee = "mail ne pas été envoiyer !";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(4));
+    }
+    public void notification(){
+     String title = "EMAIL ENVOYER! ";
             String messagee = "mail a été envoiyer avec succés!";
             TrayNotification tray = new TrayNotification();
             tray.setTitle(title);
             tray.setMessage(messagee);
             tray.setNotificationType(NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.seconds(4));
-        } catch (Exception e) {
-          //  return e.toString();
-        }
-    
+    }
+
+    @FXML
+    private void close(MouseEvent event) {
+         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 }

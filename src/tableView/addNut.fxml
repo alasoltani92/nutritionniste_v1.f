@@ -118,7 +118,7 @@
             <Insets top="25.0" />
          </VBox.margin>
          <children>
-            <JFXButton onMouseClicked="#save" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #00E676;" styleClass="btn" text="Save">
+            <JFXButton onMouseClicked="#save" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #00E676;" styleClass="btn" text="Enregistrer">
                <HBox.margin>
                   <Insets right="8.0" />
                </HBox.margin>
@@ -126,7 +126,7 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="132.0" layoutY="19.0" onMouseClicked="#clean" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #FFFF00;" styleClass="btn" text="Clean">
+            <JFXButton layoutX="132.0" layoutY="19.0" onMouseClicked="#clean" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #FFFF00;" styleClass="btn" text="Effacer">
                <HBox.margin>
                   <Insets left="8.0" />
                </HBox.margin>

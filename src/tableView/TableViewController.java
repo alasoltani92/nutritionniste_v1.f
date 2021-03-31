@@ -37,8 +37,11 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
+import javafx.util.Duration;
 import jdk.nashorn.internal.objects.annotations.Property;
 import models.Nutritionniste;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -190,6 +193,7 @@ public class TableViewController implements Initializable {
                                 preparedStatement = connection.prepareStatement(query);
                                 preparedStatement.execute();
                                 refreshTable();
+                                notificationsup();
                                 
                             } catch (SQLException ex) {
                                 Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -263,5 +267,14 @@ public class TableViewController implements Initializable {
         
     }
 
-    
+     public void notificationsup(){
+     String title = "NUTRITIONNISTE SUPRIMER! ";
+            String messagee = "nutritionniste a été supprimer!";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(4));
+            
+    }
 }

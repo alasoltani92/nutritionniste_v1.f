@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -47,6 +48,8 @@ public class CalculeIMCController implements Initializable {
     private Label resultIMC;
     @FXML
     private FontAwesomeIconView homePage;
+    @FXML
+    private FontAwesomeIconView closeid;
 
     
     /**
@@ -91,7 +94,7 @@ else if (imc > 30.0)
     @FXML
     private void goHome(MouseEvent event) {
            try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/Home/Home.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("/Adherent/Homeadhe.fxml"));
                Stage mainStage = new Stage();
                 Scene scene = new Scene(parent);
                 mainStage.setScene(scene);
@@ -118,6 +121,12 @@ else if (imc > 30.0)
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void close(MouseEvent event) {
+         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
     
     

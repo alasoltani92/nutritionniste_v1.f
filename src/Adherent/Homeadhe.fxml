@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Adherent.HomeadheController">
+   <children>
+      <Button fx:id="IMC" layoutX="182.0" layoutY="56.0" mnemonicParsing="false" onAction="#IMC" text="IMC" />
+      <Button fx:id="RDV" layoutX="291.0" layoutY="56.0" mnemonicParsing="false" onAction="#RDV" text="RDV" />
+      <Button fx:id="AVIS" layoutX="410.0" layoutY="56.0" mnemonicParsing="false" onAction="#AVIS" text="AVIS" />
+      <FontAwesomeIconView glyphName="CLOSE" layoutX="578.0" layoutY="20.0" onMouseClicked="#close" size="20" styleClass="btn" />
+   </children>
+</AnchorPane>

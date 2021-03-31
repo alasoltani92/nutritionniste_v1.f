@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="746.0" stylesheets="@tableview.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tableView.TableViewController">
    <children>
-      <TableView fx:id="nutTable" layoutX="33.0" layoutY="155.0" prefHeight="286.0" prefWidth="658.0">
+      <TableView fx:id="nutTable" layoutX="33.0" layoutY="126.0" prefHeight="336.0" prefWidth="677.0">
         <columns>
           <TableColumn fx:id="idCol" maxWidth="70.0" prefWidth="56.0" style="-fx-alignment: center;" text="ID" />
           <TableColumn fx:id="nomCol" maxWidth="114.0" prefWidth="85.0" style="-fx-alignment: center;" text="NOM" />
@@ -20,10 +20,10 @@
             <TableColumn fx:id="adressCol" maxWidth="127.0" prefWidth="127.0" style="-fx-alignment: center;" text="ADRESS" />
             <TableColumn fx:id="emailCol" maxWidth="160.0" prefWidth="123.0" style="-fx-alignment: center;" text="EMAIL" />
             <TableColumn fx:id="telCol" maxWidth="125.0" prefWidth="102.0" style="-fx-alignment: center;" text="TELEPHONE" />
-            <TableColumn fx:id="editCol" maxWidth="115.0" prefWidth="74.0" style="-fx-alignment: center;" text="OPERATION" />
+            <TableColumn fx:id="editCol" maxWidth="115.0" prefWidth="89.0" style="-fx-alignment: center;" text="OPERATION" />
         </columns>
       </TableView>
-      <Text layoutX="20.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritionniste Details" wrappingWidth="342.13671875">
+      <Text layoutX="109.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritionniste Details" wrappingWidth="342.13671875">
          <font>
             <Font name="Bauhaus 93" size="32.0" />
          </font>
@@ -33,9 +33,8 @@
             <FontAwesomeIconView glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="73.0" prefHeight="76.0" prefWidth="238.0">
+      <HBox alignment="CENTER_LEFT" layoutX="42.0" layoutY="45.0" prefHeight="76.0" prefWidth="118.0">
          <children>
-            <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" onMouseClicked="#goHome" size="45" />
             <FontAwesomeIconView fill="#2196f3" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="45" styleClass="btn">
                <HBox.margin>
                   <Insets right="10.0" />
@@ -48,6 +47,7 @@
             </FontAwesomeIconView>
          </children>
       </HBox>
+      <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" layoutY="39.0" onMouseClicked="#goHome" size="45" />
    </children>
    <styleClass>
       <String fx:value="btn" />

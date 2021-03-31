@@ -12,7 +12,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 import org.controlsfx.control.Rating;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -38,6 +41,19 @@ public class AvisController implements Initializable {
 
     @FXML
     private void envoyer(ActionEvent event) {
+       notification(); 
+    
     }
     
+    
+     public void notification(){
+     String title = "MERCI POUR VOTRE AVIS! ";
+            String messagee = "avis envoyer!";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(4));
+            
+}
 }
