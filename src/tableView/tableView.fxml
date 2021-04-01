@@ -5,6 +5,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -48,6 +49,8 @@
          </children>
       </HBox>
       <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" layoutY="39.0" onMouseClicked="#goHome" size="45" />
+      <TextField fx:id="rechId" layoutX="224.0" layoutY="83.0" />
+      <FontAwesomeIconView fx:id="searchId" glyphName="SEARCH" layoutX="381.0" layoutY="99.0" onMouseClicked="#searchName" />
    </children>
    <styleClass>
       <String fx:value="btn" />

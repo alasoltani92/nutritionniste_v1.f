@@ -31,6 +31,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -75,7 +76,12 @@ public class TableViewController implements Initializable {
     
     ObservableList<Nutritionniste>  nutritionnisteList = FXCollections.observableArrayList();
     @FXML
-    private FontAwesomeIconView homeId;
+    private TextField rechId;
+    @FXML
+   private FontAwesomeIconView homeId;
+    @FXML
+    private FontAwesomeIconView searchId;
+
     
    
 
@@ -144,7 +150,43 @@ public class TableViewController implements Initializable {
         
     }
 
-
+//recherhce nutristionniste par nom
+    
+        private void recherche(String nom) {
+        try {
+            nutritionnisteList.clear();
+            
+            query = "SELECT * FROM `nutritionniste` where `nom_nut` like '%"+nom+"%' or `prenom_nut` like '%"+nom+"%' or `addresse_nut` like '%"+nom+"%' or `num_tel_nut` like '%"+nom+"%' ";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            
+            while (resultSet.next()){
+                nutritionnisteList.add(new  Nutritionniste(
+                        resultSet.getInt("id_nutrit"),
+                        resultSet.getString("nom_nut"),
+                        resultSet.getString("prenom_nut"),
+                        resultSet.getString("addresse_nut"),
+                        resultSet.getString("mail_nut"),
+                        resultSet.getString("num_tel_nut")));
+                nutTable.setItems(nutritionnisteList);
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+         
+        
+        
+        
+        
+    }
+    
+    
+    
     private void loadDate() {
         
         connection = DbConnect.getConnect();
@@ -274,7 +316,12 @@ public class TableViewController implements Initializable {
             tray.setTitle(title);
             tray.setMessage(messagee);
             tray.setNotificationType(NotificationType.SUCCESS);
-            tray.showAndDismiss(Duration.seconds(4));
+         }
+
+    @FXML
+    private void searchName(MouseEvent event) {
+        //System.out.print("vvvvvvvvvvvvvv");
+        recherche(rechId.getText());
             
     }
 }

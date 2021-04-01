@@ -183,7 +183,7 @@ public class DemandeRDVController implements Initializable {
                                 Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
                             }
             RDVController RDVController = loader.getController();
-                  RDVController.setTextField(nutritionniste.getEmail());
+                  RDVController.setTextField(nutritionniste.getEmail(),nutritionniste.getNom());
                     Parent parent = loader.getRoot();
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));

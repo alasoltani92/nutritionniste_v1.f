@@ -6,7 +6,7 @@
 package OperationRDV;
 
 import Home.HomeController;
-import com.sun.media.sound.DataPusher;
+import RDV.RDVController;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import helpers.DbConnect;
@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +32,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -40,7 +42,6 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 import models.Nutritionniste;
 import models.Rendvous;
-
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
@@ -64,8 +65,6 @@ public class Rdv implements Initializable {
     @FXML
     private TableColumn<Rendvous, String> date;
     @FXML
-    private TableColumn<Rendvous, String> action;
-    @FXML
     private TableView<Rendvous> RdvTable;
      
     String query = null;
@@ -78,6 +77,10 @@ public class Rdv implements Initializable {
     private FontAwesomeIconView add;
     @FXML
     private FontAwesomeIconView refresh;
+    @FXML
+    private TextField rechId;
+    @FXML
+    private FontAwesomeIconView searchId;
     /**
      * Initializes the controller class.
      */
@@ -85,9 +88,34 @@ public class Rdv implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        rdvnonapprouver();
         loadDate();
     }    
+void rdvnonapprouver()
+        
+{
+    
+     
+          Statement stmt = null;
+           String query = null;
+            Connection conn = DbConnect.getConnect();
+      query = "SELECT COUNT (`approuver`) as total FROM `rdv` where `approuver`=0";
+          
+        try {
+             
+           ResultSet rs = conn.createStatement().executeQuery(query);
+           
+   while (rs.next()) {
+       System.out.println("aaaaaaaaaa"+rs.getInt("total"));
+ }
+        } catch (SQLException ex) {
+            Logger.getLogger(Rdv.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+
+}
+    
+    
     @FXML
     private void close(MouseEvent event) {
          Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -161,10 +189,19 @@ public class Rdv implements Initializable {
                         setText(null);
 
                     } else {
-
+                        FontAwesomeIconView acceptIcon = new FontAwesomeIconView(FontAwesomeIcon.CHECK); 
                         FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
                         FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
 
+                          
+
+
+                        acceptIcon.setStyle(
+                                " -fx-cursor: hand ;"
+                                + "-glyph-size:28px;"
+                                + "-fx-fill:green"
+                        ); 
+                         
                         deleteIcon.setStyle(
                                 " -fx-cursor: hand ;"
                                 + "-glyph-size:28px;"
@@ -221,11 +258,32 @@ public class Rdv implements Initializable {
                            
 
                         });
+                         acceptIcon.setOnMouseClicked((MouseEvent event) -> {
+                                Rendvous = RdvTable.getSelectionModel().getSelectedItem();
+                             
+                            query = "UPDATE `rdv` SET "
+                                        
+                    + "`approuver`=1"
+                    +" WHERE id_rdv = '"+Rendvous.getIdR()+"'";
+                             System.out.println(""+query);
+                      try {
+preparedStatement = connection.prepareStatement(query);
+ 
+      preparedStatement.execute();
+        }
+            catch (SQLException ex) {
+            
+        }
 
-                        HBox managebtn = new HBox(editIcon, deleteIcon);
+        
+                             
+                         });
+
+                        HBox managebtn = new HBox(acceptIcon,editIcon, deleteIcon);
                         managebtn.setStyle("-fx-alignment:center");
                         HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
                         HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));
+                        HBox.setMargin(acceptIcon, new Insets(2, 4, 0, 1));
 
                         setGraphic(managebtn);
 
@@ -268,4 +326,37 @@ public class Rdv implements Initializable {
             tray.showAndDismiss(Duration.seconds(4));
             
     }
+/*private void recherche(String nom) {
+        try {
+            RendvousList.clear();
+            
+            query = "SELECT * FROM `rdv` where `id_user` like '%"+nom+"%' or `id_nut`'";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            
+            while (resultSet.next()){
+                RendvousList.add(new Rendvous(
+                       
+                        resultSet.getString("id_user"),
+                        resultSet.getString("id_nut")));
+                RdvTable.setItems(RendvousList);
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(RDVController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+         
+        
+        
+        
+        
+    }
+    @FXML
+    private void searchName(MouseEvent event) {
+        recherche(rechId.getText());
+    }*/
 }

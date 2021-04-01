@@ -82,19 +82,38 @@ public class AddNutController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Veuillez remplir tout les champs");
             alert.showAndWait();
-            notificationalert();
-        } else {
-            if (validation_ajout()==1){
+              if(update==false)
+             {
+             notificationalert();
+             }
+             else if (update==true){
+                 notifmodalert();
+             
+             }
+        } else if (validation_ajout()==1){
             getQuery();
              insert();
+             if(update==false)
+             {
+              notification();
+             }
+             else if (update==true){
+             notificationmod();
+             }
              clean();
             }else{
-             getQuery();
-             insert();
+             if(update==false)
+             {
+             notificationalert();
+             }
+             else if (update==true){
+                 notifmodalert();
+             
+             }
                      }
            
 
-        }
+        
     }
 
     @FXML
@@ -116,6 +135,7 @@ public class AddNutController implements Initializable {
             preparedStatement.setString(2, prenomFld.getText());
            preparedStatement.setString(5, adressFld.getText());
             preparedStatement.execute();
+           
             
         } catch (SQLException ex) {
             
@@ -123,11 +143,11 @@ public class AddNutController implements Initializable {
      
     }
        private void getQuery() {
-if(validation_ajout()==1){
+
         if (update == false) {
             
             query = "INSERT INTO `nutritionniste`( `nom_nut`, `prenom_nut`, `num_tel_nut`, `mail_nut`,`addresse_nut`) VALUES (?,?,?,?,?)";
-            notification();
+            
         }else if(update==true) {
             query = "UPDATE `nutritionniste` SET "
                     + "`nom_nut`=?,"
@@ -135,19 +155,11 @@ if(validation_ajout()==1){
                     + "`num_tel_nut`=?,"
                     + "`mail_nut`= ? ,"
                     + "`addresse_nut` =? WHERE id_nutrit  = '"+nutId+"'";
-            notificationmod();
         }
-        else{
-        
-        notifmodalert();
-        }
+      
 
     
-} else {
-     notificationalert();
-    
 
-}
 
     }
        

@@ -7,8 +7,13 @@ package RDV;
 
 import Home.HomeController;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import helpers.DbConnect;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -65,6 +70,7 @@ public class RDVController implements Initializable {
     private Button sendId;
     @FXML
     private FontAwesomeIconView closeid;
+    String nom;
 
     /**
      * Initializes the controller class.
@@ -101,9 +107,9 @@ public class RDVController implements Initializable {
         }
         
     }
-    void setTextField(String emailCol){
+    void setTextField(String emailCol,String nom){
         this.emailId.setText(emailCol);
-        
+        this.nom=nom;
     }
 
     @FXML
@@ -120,6 +126,7 @@ public class RDVController implements Initializable {
             alert.showAndWait();
             notificationalert();
         } else{
+            ajout();
         sendEmail(); 
         notification();
         clean();
@@ -159,17 +166,14 @@ public class RDVController implements Initializable {
             message.setRecipients(Message.RecipientType.TO,
             InternetAddress.parse(/*"nessrineselmi215@gmail.com"*/emailId.getText()));//u will send to
             message.setSubject("DEMANDE RENDEZ-VOUS");
-            String msge=nomId.getText()+
-                    prenomId.getText()+
-                    DescId.getText();
+            String msge="nom adherent : "+nomId.getText()+"\n"+
+                  "prenom adherent :"+  prenomId.getText()+"\n"+
+                  "Date RDV Souhaité :"+  dateId.getValue().toString()+"\n"+
+                   "Description :"+   DescId.getText();
             message.setText(msge);
             Transport.send(message);
-           /* message.setText(prenomId.getText());
-            Transport.send(message);
-            message.setText(DescId.getText());
-             Transport.send(message);*/
-           // message.setText(dateId.getValue().toString());
-           // Transport.send(message);
+      
+      
             Msg="true";
     	   
         } catch (Exception e) {
@@ -177,6 +181,28 @@ public class RDVController implements Initializable {
         }
     
     }
+    
+    void  ajout ()
+    {
+          Statement stmt = null;
+           String query = null;
+            Connection conn = DbConnect.getConnect();
+           
+          query = "INSERT INTO `rdv`(`id_user`,`id_nut`,`date_rdv`) VALUES ('"+nomId.getText()+"','"+this.nom+"','"+dateId.getValue()+"')";  
+        try {
+             stmt = conn.createStatement();
+            stmt.executeUpdate(query);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(RDVController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    
+    
+    
+    }
+    
+    
     public void notificationalert(){
      String title = "EMAIL NON ENVOYER! ";
             String messagee = "mail ne pas été envoiyer !";

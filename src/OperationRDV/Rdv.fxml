@@ -5,6 +5,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -15,11 +16,10 @@
       <TableView fx:id="RdvTable" layoutX="33.0" layoutY="126.0" prefHeight="336.0" prefWidth="677.0">
         <columns>
           <TableColumn fx:id="id_rdv" maxWidth="70.0" prefWidth="56.0" style="-fx-alignment: center;" text="id_rdv" />
-          <TableColumn fx:id="iduser" maxWidth="117.0" prefWidth="117.0" style="-fx-alignment: center;" text="id_user " />
-            <TableColumn fx:id="idnut" maxWidth="153.0" prefWidth="108.0" style="-fx-alignment: center;" text="id_nut" />
-            <TableColumn fx:id="date" maxWidth="201.0" prefWidth="138.0" style="-fx-alignment: center;" text="date_rdv" />
-            <TableColumn fx:id="editCol" maxWidth="216.0" prefWidth="124.0" style="-fx-alignment: center;" text="OPERATION" />
-            <TableColumn fx:id="action" maxWidth="204.0" prefWidth="133.0" style="-fx-alignment: center;" text="ACTION" />
+          <TableColumn fx:id="iduser" maxWidth="117.0" prefWidth="117.0" style="-fx-alignment: center;" text="Nom Nutritionniste" />
+            <TableColumn fx:id="idnut" maxWidth="183.0" prefWidth="183.0" style="-fx-alignment: center;" text="Nom Adherent" />
+            <TableColumn fx:id="date" maxWidth="254.0" prefWidth="179.0" style="-fx-alignment: center;" text="Date Rendez-Vous" />
+            <TableColumn fx:id="editCol" maxWidth="257.0" prefWidth="141.0" style="-fx-alignment: center;" text="OPERATION" />
         </columns>
       </TableView>
       <Text layoutX="109.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez-vous Details" wrappingWidth="342.13671875">
@@ -47,6 +47,8 @@
          </children>
       </HBox>
       <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" layoutY="39.0" onMouseClicked="#goHome" size="45" />
+      <TextField fx:id="rechId" layoutX="187.0" layoutY="83.0" />
+      <FontAwesomeIconView fx:id="searchId" glyphName="SEARCH" layoutX="346.0" layoutY="99.0" onMouseClicked="#searchName" />
    </children>
    <styleClass>
       <String fx:value="btn" />

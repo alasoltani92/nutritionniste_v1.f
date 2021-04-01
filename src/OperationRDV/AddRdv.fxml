@@ -30,7 +30,7 @@
       </HBox>
       <HBox alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID Nutritionniste" wrappingWidth="102.13671875">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Nutritionniste" wrappingWidth="130.13671875">
                <font>
                   <Font name="Century Gothic" size="21.0" />
                </font>
@@ -47,7 +47,7 @@
       </HBox>
             <HBox alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID User" wrappingWidth="102.13671875">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Adherent" wrappingWidth="102.13671875">
                <font>
                   <Font name="Century Gothic" size="21.0" />
                </font>
@@ -71,16 +71,13 @@
                   <Font name="Century Gothic" size="21.0" />
                </font>
             </Text>
-            <JFXTextField fx:id="Dateid" prefHeight="25.0" prefWidth="358.0">
-               <font>
-                  <Font name="Century Gothic" size="20.0" />
-               </font>
-            </JFXTextField>
+              <DatePicker fx:id="dateId" layoutX="117.0" layoutY="196.0" prefHeight="25.0" prefWidth="358.0" />
          </children>
          <VBox.margin>
             <Insets top="17.0" />
          </VBox.margin>
       </HBox>
+       
       
       <HBox alignment="CENTER" prefHeight="62.0" prefWidth="384.0">
          <VBox.margin>
