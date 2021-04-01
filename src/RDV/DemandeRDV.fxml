@@ -2,8 +2,10 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -11,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="746.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RDV.DemandeRDVController">
    <children>
-      <TableView fx:id="nutTable" layoutX="33.0" layoutY="104.0" prefHeight="337.0" prefWidth="658.0">
+      <TableView fx:id="nutTable" layoutX="25.0" layoutY="133.0" prefHeight="337.0" prefWidth="658.0">
         <columns>
           <TableColumn fx:id="nomCol" maxWidth="114.0" prefWidth="85.0" style="-fx-alignment: center;" text="NOM" />
             <TableColumn fx:id="prenomCol" maxWidth="114.0" prefWidth="90.0" style="-fx-alignment: center;" text="PRENOM" />
@@ -33,6 +35,14 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="73.0" prefHeight="76.0" prefWidth="238.0" />
       <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" layoutX="12.0" layoutY="52.0" onMouseClicked="#goHome" size="45" />
+      <FontAwesomeIconView fx:id="searchId" glyphName="SEARCH" layoutX="604.0" layoutY="103.0" onMouseClicked="#searchName" size="30" text="" />
+      <TextField fx:id="rechId" layoutX="443.0" layoutY="80.0" />
+      <Label layoutX="373.0" layoutY="82.0" text="Search">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fx:id="refrech" fill="#02140b" glyphName="REFRESH" layoutX="644.0" layoutY="103.0" onMouseClicked="#refreshTable" size="30" styleClass="btn" text="" />
    </children>
    <styleClass>
       <String fx:value="btn" />

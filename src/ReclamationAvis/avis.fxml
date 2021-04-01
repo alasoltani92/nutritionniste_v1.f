@@ -3,29 +3,25 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="746.0" stylesheets="@tableview.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tableView.TableViewController">
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="746.0" stylesheets="@tableview.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReclamationAvis.AvisController">
    <children>
-      <TableView fx:id="nutTable" layoutX="33.0" layoutY="126.0" prefHeight="336.0" prefWidth="677.0">
+      <TableView fx:id="avisTable" layoutX="33.0" layoutY="126.0" prefHeight="336.0" prefWidth="677.0">
         <columns>
           <TableColumn fx:id="idCol" maxWidth="70.0" prefWidth="56.0" style="-fx-alignment: center;" text="ID" />
           <TableColumn fx:id="nomCol" maxWidth="114.0" prefWidth="85.0" style="-fx-alignment: center;" text="NOM" />
             <TableColumn fx:id="prenomCol" maxWidth="114.0" prefWidth="90.0" style="-fx-alignment: center;" text="PRENOM" />
-            <TableColumn fx:id="adressCol" maxWidth="127.0" prefWidth="127.0" style="-fx-alignment: center;" text="ADRESS" />
-            <TableColumn fx:id="emailCol" maxWidth="160.0" prefWidth="123.0" style="-fx-alignment: center;" text="EMAIL" />
-            <TableColumn fx:id="telCol" maxWidth="125.0" prefWidth="102.0" style="-fx-alignment: center;" text="TELEPHONE" />
-            <TableColumn fx:id="editCol" maxWidth="115.0" prefWidth="89.0" style="-fx-alignment: center;" text="OPERATION" />
+            <TableColumn fx:id="aviscol" maxWidth="178.0" prefWidth="163.0" style="-fx-alignment: center;" text="AVIS" />
+            <TableColumn fx:id="reclcol" maxWidth="222.0" prefWidth="194.0" style="-fx-alignment: center;" text="COMMENTAIRE" />
         </columns>
       </TableView>
-      <Text layoutX="109.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritionniste Details" wrappingWidth="342.13671875">
+      <Text layoutX="205.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AVIS et Commentaire" wrappingWidth="457.13671875">
          <font>
             <Font name="Bauhaus 93" size="32.0" />
          </font>
@@ -37,11 +33,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="42.0" layoutY="45.0" prefHeight="76.0" prefWidth="118.0">
          <children>
-            <FontAwesomeIconView fill="#2196f3" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="45" styleClass="btn">
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </FontAwesomeIconView>
+            <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" onMouseClicked="#goHome" size="45" />
             <FontAwesomeIconView fill="#00e676" glyphName="REFRESH" layoutX="10.0" layoutY="65.0" onMouseClicked="#refreshTable" size="45" styleClass="btn" text="">
                <HBox.margin>
                   <Insets right="10.0" />
@@ -49,14 +41,6 @@
             </FontAwesomeIconView>
          </children>
       </HBox>
-      <FontAwesomeIconView fx:id="homeId" fill="#0d10d9" glyphName="HOME" layoutY="39.0" onMouseClicked="#goHome" size="45" />
-      <TextField fx:id="rechId" layoutX="513.0" layoutY="76.0" />
-      <FontAwesomeIconView fx:id="searchId" glyphName="SEARCH" layoutX="681.0" layoutY="94.0" onMouseClicked="#searchName" size="18.0" />
-      <Label layoutX="443.0" layoutY="78.0" text="Search">
-         <font>
-            <Font name="Bauhaus 93" size="18.0" />
-         </font>
-      </Label>
    </children>
    <styleClass>
       <String fx:value="btn" />

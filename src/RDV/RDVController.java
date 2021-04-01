@@ -117,7 +117,7 @@ public class RDVController implements Initializable {
         String name=nomId.getText();
         String prenom =prenomId.getText();
         String Des =DescId.getText();
-      // String date=dateId.getValue().toString();
+//       String date=dateId.getValue().toString();
 
         if (name.isEmpty()  || prenom.isEmpty()||Des.isEmpty()/*||date.isEmpty()*/) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -221,7 +221,15 @@ public class RDVController implements Initializable {
             tray.setNotificationType(NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.seconds(4));
     }
-
+    public void notificationvariable(){
+     String title = "REMPLIR TOUT LES CHAMPS! ";
+            String messagee = "Vous devez remplir tout les chapms!";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.seconds(4));
+    }
     @FXML
     private void close(MouseEvent event) {
          Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();

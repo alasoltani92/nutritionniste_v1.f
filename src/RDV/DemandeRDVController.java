@@ -29,6 +29,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -49,8 +50,6 @@ public class DemandeRDVController implements Initializable {
     @FXML
     private TableView<Nutritionniste> nutTable;
     @FXML
-    private TableColumn<Nutritionniste, String> idCol;
-    @FXML
     private TableColumn<Nutritionniste, String> nomCol;
     @FXML
     private TableColumn<Nutritionniste, String> prenomCol;
@@ -64,6 +63,10 @@ public class DemandeRDVController implements Initializable {
     private TableColumn<Nutritionniste, String> editCol;
     @FXML
     private FontAwesomeIconView homeId;
+     @FXML
+    private FontAwesomeIconView searchId;
+    @FXML
+    private TextField rechId;
     
     String query = null;
     Connection connection = null ;
@@ -72,6 +75,9 @@ public class DemandeRDVController implements Initializable {
     Nutritionniste nutritionniste = null ;
     
     ObservableList<Nutritionniste>  nutritionnisteList = FXCollections.observableArrayList();
+    @FXML
+    private FontAwesomeIconView refrech;
+   
     /**
      * Initializes the controller class.
      */
@@ -102,15 +108,9 @@ public class DemandeRDVController implements Initializable {
     }
    
 
-    @FXML
-    private void getAddView(MouseEvent event) {
-    }
-
-    @FXML
-    private void refreshTable(MouseEvent event) {
-    }
     
     
+    @FXML
      private void refreshTable() {
         try {
             nutritionnisteList.clear();
@@ -214,6 +214,36 @@ public class DemandeRDVController implements Initializable {
          nutTable.setItems(nutritionnisteList);
          
          
+    }
+        private void recherche(String nom) {
+        try {
+            nutritionnisteList.clear();
+            
+            query = "SELECT * FROM `nutritionniste` where `nom_nut` like '%"+nom+"%' or `prenom_nut` like '%"+nom+"%' or `addresse_nut` like '%"+nom+"%' or `num_tel_nut` like '%"+nom+"%' ";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            
+            while (resultSet.next()){
+                nutritionnisteList.add(new  Nutritionniste(
+                        resultSet.getInt("id_nutrit"),
+                        resultSet.getString("nom_nut"),
+                        resultSet.getString("prenom_nut"),
+                        resultSet.getString("addresse_nut"),
+                        resultSet.getString("mail_nut"),
+                        resultSet.getString("num_tel_nut")));
+                nutTable.setItems(nutritionnisteList);
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+
+    @FXML
+    private void searchName(MouseEvent event) {
+         recherche(rechId.getText());
     }
      
 

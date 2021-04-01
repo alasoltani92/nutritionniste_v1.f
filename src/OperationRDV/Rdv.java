@@ -77,36 +77,42 @@ public class Rdv implements Initializable {
     private FontAwesomeIconView add;
     @FXML
     private FontAwesomeIconView refresh;
-    @FXML
-    private TextField rechId;
+   
     @FXML
     private FontAwesomeIconView searchId;
     /**
      * Initializes the controller class.
      */
-    
+    private int totalToApprove;
+    @FXML
+    private TextField rechId;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        rdvnonapprouver();
+       rdvnonapprouver();
         loadDate();
     }    
 void rdvnonapprouver()
-        
-{
-    
-     
-          Statement stmt = null;
+        {
+            Statement stmt = null;
            String query = null;
             Connection conn = DbConnect.getConnect();
-      query = "SELECT COUNT (`approuver`) as total FROM `rdv` where `approuver`=0";
+      query = "SELECT COUNT(*)as total FROM `rdv` WHERE approuver=0";
           
         try {
              
            ResultSet rs = conn.createStatement().executeQuery(query);
+          //  System.out.println("vvvvvvv"+rs.getInt(1));
            
    while (rs.next()) {
-       System.out.println("aaaaaaaaaa"+rs.getInt("total"));
+       totalToApprove=rs.getInt("total");
+      // System.out.println("aaaaaaaaaa"+rs.getInt("total"));
+      if (totalToApprove>0){
+       notifeprouve();
+      }else{
+      
+          notifnonprouve();
+      }
  }
         } catch (SQLException ex) {
             Logger.getLogger(Rdv.class.getName()).log(Level.SEVERE, null, ex);
@@ -326,37 +332,78 @@ preparedStatement = connection.prepareStatement(query);
             tray.showAndDismiss(Duration.seconds(4));
             
     }
-/*private void recherche(String nom) {
-        try {
+      public void notifeprouve(){
+     String title = "RENDEZ-VOUS NON ACCEPTER! ";
+            String messagee = "Vous-avez  "+ totalToApprove +"  rendz-vous en attente!";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.INFORMATION);
+            tray.showAndDismiss(Duration.seconds(6));
+      }
+      public void notifnonprouve(){
+     String title = "aucun rendez-vous en attente! ";
+           // String messagee = "Vous-avez  "+ totalToApprove +"  rendz-vous en attente!";
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle(title);
+            //tray.setMessage(messagee);
+            tray.setNotificationType(NotificationType.INFORMATION);
+            tray.showAndDismiss(Duration.seconds(6));
+      }
+private void recherche(String nom) {
+//        try {
+//            RendvousList.clear();
+//            
+//            query = "SELECT * FROM `rdv` where `id_user` like '%"+nom+"%' or `id_nut` like '%"+nom+"%'or `id_rdv` like '%"+nom+"%'";
+//            preparedStatement = connection.prepareStatement(query);
+//            resultSet = preparedStatement.executeQuery();
+//            
+//            while (resultSet.next()){
+//                RendvousList.add(new Rendvous(
+//                        resultSet.getInt("id_rdv"),
+//                        resultSet.getString("iduser"),
+//                        resultSet.getString("idnut")));
+//                RdvTable.setItems(RendvousList);
+//                
+//            }
+//            
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(RDVController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+                 
+     try {
             RendvousList.clear();
             
-            query = "SELECT * FROM `rdv` where `id_user` like '%"+nom+"%' or `id_nut`'";
-            preparedStatement = connection.prepareStatement(query);
+           query = "SELECT * FROM `rdv` where `id_user` like '%"+nom+"%' or `id_nut` like '%"+nom+"%'or `id_rdv` like '%"+nom+"%'";
+           System.out.println("recherche"+query); 
+           preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             
             while (resultSet.next()){
-                RendvousList.add(new Rendvous(
-                       
+                RendvousList.add(new  Rendvous(
+                        
+                        resultSet.getInt("id_rdv"),
                         resultSet.getString("id_user"),
-                        resultSet.getString("id_nut")));
+                        resultSet.getString("id_nut"),
+                        resultSet.getString("date_rdv")
+                        
+                       ));
+              
                 RdvTable.setItems(RendvousList);
-                
+          
             }
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(RDVController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Rdv.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-         
-        
-        
-        
-        
-    }
+         }
+
     @FXML
     private void searchName(MouseEvent event) {
-        recherche(rechId.getText());
-    }*/
+        
+        recherche(rechId.getText().toString());
+    }
+   
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Adherent;
+package login;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,7 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import tableView.TableViewController;
@@ -28,28 +28,30 @@ import tableView.TableViewController;
  *
  * @author soltani med ala
  */
-public class HomeadheController implements Initializable {
+public class InterLoginController implements Initializable {
 
     @FXML
-    private Button IMC;
+    private TextField txtlogin;
     @FXML
-    private Button RDV;
+    private TextField txtpwd;
     @FXML
-    private Button avis;
+    private Button cnx;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         // TODO
     }    
 
     @FXML
-    private void IMC(ActionEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/IMC/CalculeIMC.fxml"));
+    private void cnxaction(ActionEvent event) {
+       
+        if(txtlogin.getText().toString().equals("ala")&&txtpwd.getText().equals("ala")){
+            
+            try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/Home/Home.fxml"));
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -60,12 +62,13 @@ public class HomeadheController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @FXML
-    private void RDV(ActionEvent event) {
-         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/RDV/DemandeRDV.fxml"));
+        
+        }
+        
+         else if(txtlogin.getText().toString().equals("soltani")&&txtpwd.getText().equals("soltani")){
+        
+              try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/Adherent/Homeadhe.fxml"));
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -76,30 +79,7 @@ public class HomeadheController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @FXML
-    private void AVIS(ActionEvent event) {
-         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/ReclamationAvis/aviss.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
-            Stage current = (Stage)((Node) event.getSource()).getScene().getWindow();
-           current.close();
-        } catch (IOException ex) {
-            Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-    }
-
-    @FXML
-    private void close(MouseEvent event) {
-         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.close();
-    
     }
     
 }

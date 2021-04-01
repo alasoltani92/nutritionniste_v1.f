@@ -208,8 +208,8 @@ return a;
             tray.showAndDismiss(Duration.seconds(4));
       }
              public void notification(){
-     String title = "RENDEZ-VOUS NON ajouter! ";
-            String messagee = "Rendez-vous ne pas été ajouter !";
+     String title = "RENDEZ-VOUS ajouter! ";
+            String messagee = "Rendez-vous a été ajouter !";
             TrayNotification tray = new TrayNotification();
             tray.setTitle(title);
             tray.setMessage(messagee);

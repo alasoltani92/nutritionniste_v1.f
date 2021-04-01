@@ -28,6 +28,10 @@ public class Nutritionniste {
         this.telephone = telephone;
     }
 
+    public Nutritionniste(String string, String string0, String string1, String string2, String string3) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getTelephone() {
         return telephone;
     }
