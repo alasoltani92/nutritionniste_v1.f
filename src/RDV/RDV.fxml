@@ -1,43 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="746.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RDV.RDVController">
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="591.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RDV.RDVController">
    <children>
-      <TextField fx:id="nomId" layoutX="117.0" layoutY="68.0" prefHeight="25.0" prefWidth="200.0" />
-      <TextField fx:id="prenomId" layoutX="117.0" layoutY="111.0" prefHeight="25.0" prefWidth="200.0" />
-      <TextArea fx:id="DescId" layoutX="117.0" layoutY="243.0" prefHeight="108.0" prefWidth="200.0" />
-      <TextField fx:id="emailId" disable="true" layoutX="117.0" layoutY="155.0" prefHeight="25.0" prefWidth="200.0" />
-      <Label layoutX="26.0" layoutY="68.0" text="Nom" />
-      <Label layoutX="26.0" layoutY="115.0" text="Prenom" />
-      <Label layoutX="26.0" layoutY="159.0" text="Email" />
-      <Label layoutX="27.0" layoutY="243.0" text="Description" />
-      <Label layoutX="26.0" layoutY="200.0" text="Date de RDV" />
-      <DatePicker fx:id="dateId" layoutX="117.0" layoutY="196.0" prefHeight="25.0" prefWidth="200.0" />
-      <Label ellipsisString="342.13671875" layoutX="141.0" layoutY="4.0" text="Prendre Rendez-Vous ">
+      <TextField fx:id="nomId" layoutX="353.0" layoutY="73.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="prenomId" layoutX="360.0" layoutY="117.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextArea fx:id="DescId" layoutX="360.0" layoutY="284.0" prefHeight="108.0" prefWidth="200.0" />
+      <TextField fx:id="emailId" disable="true" layoutX="359.0" layoutY="168.0" prefHeight="25.0" prefWidth="200.0" />
+      <Label layoutX="272.0" layoutY="81.0" text="Nom" />
+      <Label layoutX="268.0" layoutY="121.0" text="Prenom" />
+      <Label layoutX="272.0" layoutY="172.0" text="Email" />
+      <Label layoutX="273.0" layoutY="276.0" text="Description" />
+      <Label layoutX="270.0" layoutY="228.0" text="Date de RDV" />
+      <DatePicker fx:id="dateId" layoutX="361.0" layoutY="224.0" prefHeight="25.0" prefWidth="200.0" />
+      <Label ellipsisString="342.13671875" layoutX="322.0" layoutY="6.0" text="Prendre Rendez-Vous ">
          <font>
             <Font name="Bauhaus 93" size="32.0" />
          </font></Label>
-      <HBox alignment="TOP_CENTER" layoutX="-4.0" layoutY="3.0" prefHeight="40.0" prefWidth="53.0">
-         <children>
-            <FontAwesomeIconView fx:id="homePage" fill="#0d10d9" glyphName="HOME" layoutX="101.0" layoutY="47.0" onMouseClicked="#goHome" size="45" text="" wrappingWidth="37.0" />
-         </children>
-      </HBox>
-      <HBox layoutX="79.0" layoutY="2.0" prefHeight="46.0" prefWidth="46.0">
-         <children>
-            <FontAwesomeIconView fx:id="goRDV" fill="#0d10d9" glyphName="MAIL_REPLY" onMouseClicked="#goRDV" size="40" text="" wrappingWidth="35.0" />
-         </children>
-      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="-4.0" layoutY="3.0" prefHeight="40.0" prefWidth="53.0" />
+      <HBox layoutX="79.0" layoutY="2.0" prefHeight="46.0" prefWidth="46.0" />
       <HBox fx:id="send" layoutX="344.0" layoutY="310.0" prefHeight="82.0" prefWidth="78.0" />
-      <Button fx:id="sendId" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" onAction="#sendMail" prefHeight="25.0" prefWidth="68.0" text="Envoyer" />
+      <Button fx:id="sendId" layoutX="546.0" layoutY="415.0" mnemonicParsing="false" onAction="#sendMail" prefHeight="25.0" prefWidth="68.0" text="Envoyer" />
       <FontAwesomeIconView fx:id="closeid" glyphName="CLOSE" layoutX="698.0" layoutY="22.0" onMouseClicked="#close" size="20" styleClass="btn" text="" />
+      <FontAwesomeIconView fx:id="goRDV" fill="#0d10d9" glyphName="MAIL_REPLY" layoutX="252.0" layoutY="48.0" onMouseClicked="#goRDV" size="40" text="" wrappingWidth="47.0" />
+      <FontAwesomeIconView fx:id="homePage" fill="#0d10d9" glyphName="HOME" layoutX="206.0" layoutY="45.0" onMouseClicked="#goHome" size="45" text="" wrappingWidth="37.0" />
+      <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="514.0" prefWidth="198.0" style="-fx-background-color: #65d2e6;">
+         <children>
+            <VBox layoutX="14.0" layoutY="14.0" prefHeight="489.0" prefWidth="178.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#eventRedirect" prefHeight="69.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/76931541_862746537475073_1999362329178800128_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="59.0" text="Event" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="44.0" fitWidth="45.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/96377513_228237518628394_4383626454760423424_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="nut" alignment="TOP_RIGHT" onMouseClicked="#nut_login" prefHeight="34.0" prefWidth="99.0" text="Nutrisoniste" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#coursRedirect" prefHeight="66.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/50072491_334200950519923_2615387173456707584_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="62.0" text="Cours" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#promoRedirect" prefHeight="74.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/84797561_500217524247080_4463394902369107968_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="98.0" text="Promotion" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#coachRedirect" prefHeight="69.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/166832743_186134159798239_5627999576669343347_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="63.0" text="Coach" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#abonnementRedirect" prefHeight="75.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/167107939_158007286100610_5851228863325943918_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="111.0" text="Abonnement" textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#userRedirect" prefHeight="55.0" prefWidth="178.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/167432623_443912563604031_3569154307758774092_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="62.0" text="Users " textFill="WHITE">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -28,6 +28,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -81,6 +82,8 @@ public class TableViewController implements Initializable {
    private FontAwesomeIconView homeId;
     @FXML
     private FontAwesomeIconView searchId;
+    @FXML
+    private Label nut;
 
     
    
@@ -323,5 +326,37 @@ public class TableViewController implements Initializable {
         //System.out.print("vvvvvvvvvvvvvv");
         recherche(rechId.getText());
             
+    }
+
+    @FXML
+    private void eventRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void redirectevent(MouseEvent event) {
+    }
+
+    @FXML
+    private void nut_login(MouseEvent event) {
+    }
+
+    @FXML
+    private void coursRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void promoRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void coachRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void abonnementRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void userRedirect(MouseEvent event) {
     }
 }

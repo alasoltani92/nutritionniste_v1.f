@@ -15,9 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="840.0" stylesheets="@tableview.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OperationRDV.Rdv">
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="877.0" stylesheets="@tableview.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OperationRDV.Rdv">
    <children>
-      <TableView fx:id="RdvTable" layoutX="190.0" layoutY="147.0" prefHeight="356.0" prefWidth="621.0">
+      <TableView fx:id="RdvTable" layoutX="195.0" layoutY="147.0" prefHeight="356.0" prefWidth="662.0">
         <columns>
           <TableColumn fx:id="id_rdv" maxWidth="70.0" prefWidth="56.0" style="-fx-alignment: center;" text="id_rdv" />
           <TableColumn fx:id="iduser" maxWidth="117.0" prefWidth="117.0" style="-fx-alignment: center;" text="Nom Nutritionniste" />

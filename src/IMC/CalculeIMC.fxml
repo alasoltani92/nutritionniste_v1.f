@@ -38,13 +38,13 @@
          <font>
             <Font name="Bauhaus 93" size="32.0" />
          </font></Label>
-      <Label fx:id="reponse" layoutX="362.0" layoutY="338.0" text="Label" textFill="#ab3939">
+      <Label fx:id="reponse" layoutX="282.0" layoutY="338.0" text="Label" textFill="#ab3939">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <Button fx:id="consultRegime" layoutX="590.0" layoutY="436.0" mnemonicParsing="false" onAction="#goProgrameMinceur" text="Consulter Regime" />
-      <Label fx:id="resultIMC" layoutX="363.0" layoutY="281.0" text="Label" textFill="#da1b1b">
+      <Label fx:id="resultIMC" layoutX="276.0" layoutY="281.0" text="Label" textFill="#da1b1b">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
