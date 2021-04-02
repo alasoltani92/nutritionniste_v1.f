@@ -26,6 +26,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -77,6 +78,10 @@ public class DemandeRDVController implements Initializable {
     ObservableList<Nutritionniste>  nutritionnisteList = FXCollections.observableArrayList();
     @FXML
     private FontAwesomeIconView refrech;
+    @FXML
+    private FontAwesomeIconView add;
+    @FXML
+    private Label nut;
    
     /**
      * Initializes the controller class.
@@ -244,6 +249,42 @@ public class DemandeRDVController implements Initializable {
     @FXML
     private void searchName(MouseEvent event) {
          recherche(rechId.getText());
+    }
+
+    @FXML
+    private void getAddView(MouseEvent event) {
+    }
+
+    @FXML
+    private void eventRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void redirectevent(MouseEvent event) {
+    }
+
+    @FXML
+    private void nut_login(MouseEvent event) {
+    }
+
+    @FXML
+    private void coursRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void promoRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void coachRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void abonnementRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void userRedirect(MouseEvent event) {
     }
      
 

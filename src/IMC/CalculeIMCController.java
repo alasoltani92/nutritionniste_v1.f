@@ -50,6 +50,8 @@ public class CalculeIMCController implements Initializable {
     private FontAwesomeIconView homePage;
     @FXML
     private FontAwesomeIconView closeid;
+    @FXML
+    private Label nut;
 
     
     /**
@@ -123,6 +125,38 @@ else if (imc > 30.0)
     private void close(MouseEvent event) {
          Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void eventRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void redirectevent(MouseEvent event) {
+    }
+
+    @FXML
+    private void nut_login(MouseEvent event) {
+    }
+
+    @FXML
+    private void coursRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void promoRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void coachRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void abonnementRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void userRedirect(MouseEvent event) {
     }
     
     

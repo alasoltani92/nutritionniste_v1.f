@@ -101,5 +101,33 @@ public class HomeadheController implements Initializable {
         stage.close();
     
     }
+
+    @FXML
+    private void eventRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void redirectevent(MouseEvent event) {
+    }
+
+    @FXML
+    private void coursRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void promoRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void coachRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void abonnementRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void userRedirect(MouseEvent event) {
+    }
     
 }

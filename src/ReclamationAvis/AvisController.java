@@ -26,6 +26,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -57,7 +58,6 @@ public class AvisController implements Initializable {
     
     @FXML
     private TableColumn<Avis, String> reclcol;
-    @FXML
     private TableColumn<Avis, String> editCol;
     @FXML
     private FontAwesomeIconView homeId;
@@ -72,6 +72,8 @@ public class AvisController implements Initializable {
     private TableColumn<Avis, String> aviscol;
     @FXML
     private TableView<Avis> avisTable;
+    @FXML
+    private Label nut;
    
 
     /**
@@ -164,7 +166,7 @@ private void refresh(){
             
 
                         FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
+                       // FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
 
                         deleteIcon.setStyle(
                                 " -fx-cursor: hand ;"
@@ -204,9 +206,41 @@ private void refresh(){
 
             return cell;
         };
-         editCol.setCellFactory(cellFoctory);
+//         editCol.setCellFactory(cellFoctory);
          avisTable.setItems(avislist);
     
    }
+
+    @FXML
+    private void eventRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void redirectevent(MouseEvent event) {
+    }
+
+    @FXML
+    private void nut_login(MouseEvent event) {
+    }
+
+    @FXML
+    private void coursRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void promoRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void coachRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void abonnementRedirect(MouseEvent event) {
+    }
+
+    @FXML
+    private void userRedirect(MouseEvent event) {
+    }
     
 }
