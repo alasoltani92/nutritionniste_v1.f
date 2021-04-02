@@ -53,7 +53,7 @@
                      <children>
                         <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/76931541_862746537475073_1999362329178800128_n.png" />
+                              <Image url="@../icons/76931541_862746537475073_1999362329178800128_n.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="59.0" text="Event" textFill="WHITE">
@@ -104,7 +104,7 @@
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/84797561_500217524247080_4463394902369107968_n.png" />
+                              <Image url="@../icons/84797561_500217524247080_4463394902369107968_n.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="98.0" text="Promotion" textFill="WHITE">
@@ -121,7 +121,7 @@
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/166832743_186134159798239_5627999576669343347_n.png" />
+                              <Image url="@../icons/166832743_186134159798239_5627999576669343347_n.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="63.0" text="Coach" textFill="WHITE">
@@ -138,7 +138,7 @@
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/167107939_158007286100610_5851228863325943918_n.png" />
+                              <Image url="@../icons/167107939_158007286100610_5851228863325943918_n.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="111.0" text="Abonnement" textFill="WHITE">
@@ -155,7 +155,7 @@
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="40.0" onMouseClicked="#redirectevent" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Sporify-Obaid-Kais-Hedi-Semeh-Anas/Sporify-Last/src/icons/167432623_443912563604031_3569154307758774092_n.png" />
+                              <Image url="@../icons/167432623_443912563604031_3569154307758774092_n.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="62.0" text="Users " textFill="WHITE">

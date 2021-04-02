@@ -253,6 +253,21 @@ public class DemandeRDVController implements Initializable {
 
     @FXML
     private void getAddView(MouseEvent event) {
+        
+            try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/RDV/Homeadhe.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
     }
 
     @FXML
